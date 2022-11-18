@@ -1,0 +1,18 @@
+.navbar-brand {
+    font-weight: bold;
+}
+
+.btn {
+    font-weight: bold;
+}
+
+.navbar {
+    background-color: black;
+}
+
+.title {
+    margin-top: 440px;
+    margin-left: 100px;
+    font-weight: 700;
+    font-size: 40px;
+}

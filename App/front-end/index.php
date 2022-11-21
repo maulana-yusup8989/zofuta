@@ -22,21 +22,22 @@
     <link href="../../template/Gp/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="../../template/Gp/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
-    <link href="../../template/Gp/assets/css/styles.css" rel="stylesheet">
+    <link href="../../template/Gp/assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center justify-content-lg-between">
-            <h1 class="logo me-auto me-lg-0"><a href="index.php">Zona Futsal Purwakarta<span>.</span></a></h1>
+            <a href="index.php" class="logo auto lg-0"><img src="../img/logo.png" alt="" class="img-fluid"></a>
+            <h1 class="logo auto me-lg-0"><a href="index.php"><span>Zona Futsal</span> Purwakarta.</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             <nav id="navbar" class="navbar order-lg-0">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                     <li><a class="nav-link scrollto" href="#">Contact</a></li>
-                    <button class="btn btn-success scrollto" onclick="window.location.href='login.php';" style=" margin-left: 20px;">Login</button>
+                    <li><a class="nav-link scrollto" href="#">Booking</a></li>
+                    <button class="btn btn-success scrollto fw-bold" onclick="window.location.href='login.php';" style=" margin-left: 20px;">Login</button>
                 </ul>
 
                 <i class=" bi bi-list mobile-nav-toggle"></i>
@@ -89,9 +90,7 @@
                 <!-- End Search -->
 
                 <?php
-
                 $conn = $pdo->open();
-
                 try {
                     $inc = 3;
                     $stmt = $conn->prepare("SELECT * FROM gor");
@@ -101,28 +100,28 @@
                         $inc = ($inc == 3) ? 1 : $inc + 1;
                         if ($inc == 1) echo "<div class='row'>";
                         echo "
-	       							<div class=' col-lg-4 col-md-6 d-flex align-items-stretch'>
-                                       <div class='member' data-aos='fade-up' data-aos-delay='100'>
-                                       <div class='member-img'>
-                                           <img src='" . $image . "' class='img-fluid' alt=' href='login.php'>
-                                       </div>
-                                       <div class='member-info'>
-                                           <h4>" . $row['nama_gor'] . "</h4>
-                                           <div class='row'>
-                                               <div class='col'>
-                                                   <h5><i class='bi bi-geo-alt-fill'></i>" . $row['alamat_gor'] . "</h5>
-                                               </div>
-                                               <div class='col  justify-content-right'>
-                                                   <h5>999 KM dari anda</h5>
-                                               </div>
-                                           </div>
-                                           <div class='row'>
-                                               <button class='btn btn-success mt-4'>Lihat Detail</button>
-                                           </div>
-                                       </div>
-                                   </div>
-                                   </div>
-	       						";
+                                <div class=' col-lg-4 col-md-6 d-flex align-items-stretch'>
+                                    <div class='member' data-aos='fade-up' data-aos-delay='100'>
+                                    <div class='member-img'>
+                                        <img src='" . $image . "' class='img-fluid' alt=' href='login.php'>
+                                    </div>
+                                    <div class='member-info'>
+                                        <h4>" . $row['nama_gor'] . "</h4>
+                                        <div class='row'>
+                                            <div class='col'>
+                                                <h5><i class='bi bi-geo-alt-fill'></i>" . $row['alamat_gor'] . "</h5>
+                                            </div>
+                                            <div class='col  justify-content-right'>
+                                                <h5>999 KM dari anda</h5>
+                                            </div>
+                                        </div>
+                                        <div class='row'>
+                                            <button class='btn btn-success mt-4'>Lihat Detail</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            ";
                         if ($inc == 3) echo "</div>";
                     }
                     if ($inc == 1) echo "<div class='col-sm-4'></div><div class='col-sm-4'></div></div>";
@@ -130,275 +129,8 @@
                 } catch (PDOException $e) {
                     echo "There is some problem in connection: " . $e->getMessage();
                 }
-
                 $pdo->close();
-
                 ?>
-
-                <!-- <div class="row">
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
             </div>
             </div>
         </section><!-- End Team Section -->
@@ -408,14 +140,7 @@
     <footer id="footer">
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>Zona Futsal Purwakarta</span></strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/ -->
-                Designed by <a href="#">Tim Zofuta</a>
+                <strong><span style="color:green;">&copy; ZONA FUTSAL</span> PURWAKARTA</strong>
             </div>
         </div>
     </footer><!-- End Footer -->

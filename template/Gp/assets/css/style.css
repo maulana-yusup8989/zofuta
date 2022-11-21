@@ -19,7 +19,6 @@ a {
 }
 
 a:hover {
-    color: #ffd584;
     text-decoration: none;
 }
 
@@ -133,15 +132,12 @@ h6 {
     transition: all 0.5s;
     z-index: 997;
     padding: 15px 0;
+    background: white;
 }
 
 #header.header-scrolled,
 #header.header-inner-pages {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-#headers {
-    background: rgba(0, 0, 0, 0.8);
+    background: white;
 }
 
 #header .logo {
@@ -155,7 +151,7 @@ h6 {
 }
 
 #header .logo a {
-    color: #fff;
+    color: rgb(72, 72, 72);
 }
 
 #header .logo a span {
@@ -222,7 +218,7 @@ h6 {
     padding: 10px 0 10px 30px;
     font-size: 15px;
     font-weight: 600;
-    color: #fff;
+    color: rgb(72, 72, 72);
     white-space: nowrap;
     transition: 0.3s;
 }
@@ -407,7 +403,7 @@ h6 {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-    background-color: #ffc451;
+    background-color: green;
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -471,7 +467,7 @@ h6 {
 #hero .icon-box i {
     font-size: 32px;
     line-height: 1;
-    color: #ffc451;
+    color: green;
 }
 
 #hero .icon-box h3 {
@@ -489,11 +485,11 @@ h6 {
 }
 
 #hero .icon-box h3 a:hover {
-    color: #ffc451;
+    color: green;
 }
 
 #hero .icon-box:hover {
-    border-color: #ffc451;
+    border-color: green;
 }
 
 @media (min-width: 1024px) {
@@ -646,7 +642,7 @@ section {
 .features .icon-box i {
     font-size: 48px;
     float: left;
-    color: #ffc451;
+    color: rgba(0, 145, 68, 0.63);
 }
 
 .features .icon-box p {

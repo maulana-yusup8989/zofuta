@@ -1,6 +1,6 @@
-<?php include '../../template/header.php' ?>
-<?php include '../../template/navbar.php' ?>
-<?php include '../../template/sidebar.php' ?>
+<?php include 'template/header.php' ?>
+<?php include 'template/navbar.php' ?>
+<?php include 'template/sidebar.php' ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -74,4 +74,4 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<?php include '../../template/footer.php' ?>
+<?php include 'template/footer.php' ?>

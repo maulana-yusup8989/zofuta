@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <?php include 'includes/conn.php'; ?>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Zona Futsal Purwakarta</title>
@@ -22,26 +23,20 @@
     <link href="../../template/Gp/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="../../template/Gp/assets/css/styles.css" rel="stylesheet">
-    <!-- =======================================================
-  * Template Name: Gp - v4.9.1
-  * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center justify-content-lg-between">
-            <h1 class="logo me-auto me-lg-0"><a href="index.html">Zona Futsal Purwakarta<span>.</span></a></h1>
+            <h1 class="logo me-auto me-lg-0"><a href="index.php">Zona Futsal Purwakarta<span>.</span></a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             <nav id="navbar" class="navbar order-lg-0">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                     <li><a class="nav-link scrollto" href="#">Contact</a></li>
-                    <button class="btn btn-success" href="#" style=" margin-left: 20px;">Login</button>
+                    <button class="btn btn-success scrollto" onclick="window.location.href='login.php';" style=" margin-left: 20px;">Login</button>
                 </ul>
 
                 <i class=" bi bi-list mobile-nav-toggle"></i>
@@ -83,7 +78,6 @@
                                 <a class=" btn btn-outline-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-funnel-fill"></i>
                                 </a>
-
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li><a class="dropdown-item" href="#">Default</a></li>
                                     <li><a class="dropdown-item" href="#">Jarak Terdekat</a></li>
@@ -93,8 +87,56 @@
                     </div>
                 </div>
                 <!-- End Search -->
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+
+                <?php
+
+                $conn = $pdo->open();
+
+                try {
+                    $inc = 3;
+                    $stmt = $conn->prepare("SELECT * FROM gor");
+                    $stmt->execute();
+                    foreach ($stmt as $row) {
+                        $image = (!empty($row['foto_gor'])) ? '../img/' . $row['foto_gor'] : '../img/lapangan.png';
+                        $inc = ($inc == 3) ? 1 : $inc + 1;
+                        if ($inc == 1) echo "<div class='row'>";
+                        echo "
+	       							<div class=' col-lg-4 col-md-6 d-flex align-items-stretch'>
+                                       <div class='member' data-aos='fade-up' data-aos-delay='100'>
+                                       <div class='member-img'>
+                                           <img src='" . $image . "' class='img-fluid' alt=' href='login.php'>
+                                       </div>
+                                       <div class='member-info'>
+                                           <h4>" . $row['nama_gor'] . "</h4>
+                                           <div class='row'>
+                                               <div class='col'>
+                                                   <h5><i class='bi bi-geo-alt-fill'></i>" . $row['alamat_gor'] . "</h5>
+                                               </div>
+                                               <div class='col  justify-content-right'>
+                                                   <h5>999 KM dari anda</h5>
+                                               </div>
+                                           </div>
+                                           <div class='row'>
+                                               <button class='btn btn-success mt-4'>Lihat Detail</button>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   </div>
+	       						";
+                        if ($inc == 3) echo "</div>";
+                    }
+                    if ($inc == 1) echo "<div class='col-sm-4'></div><div class='col-sm-4'></div></div>";
+                    if ($inc == 2) echo "<div class='col-sm-4'></div></div>";
+                } catch (PDOException $e) {
+                    echo "There is some problem in connection: " . $e->getMessage();
+                }
+
+                $pdo->close();
+
+                ?>
+
+                <!-- <div class="row">
+                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
                                 <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
@@ -108,12 +150,15 @@
                                     <div class="col  justify-content-right">
                                         <h5>999 KM dari anda</h5>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-success mt-4">Lihat Detail</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
                                 <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
@@ -127,12 +172,15 @@
                                     <div class="col  justify-content-right">
                                         <h5>999 KM dari anda</h5>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-success mt-4">Lihat Detail</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
                                 <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
@@ -146,12 +194,15 @@
                                     <div class="col  justify-content-right">
                                         <h5>999 KM dari anda</h5>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-success mt-4">Lihat Detail</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
                                 <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
@@ -165,12 +216,15 @@
                                     <div class="col  justify-content-right">
                                         <h5>999 KM dari anda</h5>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-success mt-4">Lihat Detail</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
                                 <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
@@ -184,12 +238,15 @@
                                     <div class="col  justify-content-right">
                                         <h5>999 KM dari anda</h5>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-success mt-4">Lihat Detail</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
                                 <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
@@ -203,12 +260,15 @@
                                     <div class="col  justify-content-right">
                                         <h5>999 KM dari anda</h5>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-success mt-4">Lihat Detail</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
                                 <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
@@ -222,12 +282,15 @@
                                     <div class="col  justify-content-right">
                                         <h5>999 KM dari anda</h5>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-success mt-4">Lihat Detail</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
                                 <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
@@ -241,12 +304,15 @@
                                     <div class="col  justify-content-right">
                                         <h5>999 KM dari anda</h5>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-success mt-4">Lihat Detail</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
                                 <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
@@ -260,12 +326,15 @@
                                     <div class="col  justify-content-right">
                                         <h5>999 KM dari anda</h5>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-success mt-4">Lihat Detail</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
                                 <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
@@ -279,12 +348,15 @@
                                     <div class="col  justify-content-right">
                                         <h5>999 KM dari anda</h5>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-success mt-4">Lihat Detail</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
                                 <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
@@ -295,15 +367,18 @@
                                     <div class="col">
                                         <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
                                     </div>
-                                    <div class="col  justify-content-right">
+                                    <div class="col justify-content-right">
                                         <h5>999 KM dari anda</h5>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <button class="btn btn-success mt-4">Lihat Detail</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
+                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="member-img">
                                 <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
@@ -318,10 +393,13 @@
                                         <h5>999 KM dari anda</h5>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <button class="btn btn-success mt-4">Lihat Detail</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div> -->
+            </div>
             </div>
         </section><!-- End Team Section -->
     </main><!-- End #main -->

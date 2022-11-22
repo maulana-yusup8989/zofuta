@@ -157,7 +157,7 @@ h6 {
 }
 
 #header .logo a {
-    color: #fff;
+    color: grey;
 }
 
 #header .logo a span {
@@ -224,7 +224,7 @@ h6 {
     padding: 10px 0 10px 30px;
     font-size: 15px;
     font-weight: 600;
-    color: #fff;
+    color: grey;
     white-space: nowrap;
     transition: 0.3s;
 }
@@ -563,6 +563,31 @@ section {
     color: #151515;
 }
 
+.accordion {
+    background-color: #D9D9D94D;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.accordion:hover {
+    background-color: white;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+}
+
 /*--------------------------------------------------------------
   # About
   --------------------------------------------------------------*/
@@ -648,7 +673,7 @@ section {
 .features .icon-box i {
     font-size: 48px;
     float: left;
-    color: #ffc451;
+    color: green;
 }
 
 .features .icon-box p {

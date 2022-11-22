@@ -22,7 +22,7 @@
     <link href="../../template/Gp/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
     <!-- Template Main CSS File -->
-    <link href="../../template/Gp/assets/css/style.css" rel="stylesheet">
+    <link href="../../template/Gp/assets/css/styles.css" rel="stylesheet">
     <link href="../../template/Gp/assets/cssform-validation.css" rel="stylesheet">
 </head>
 
@@ -35,7 +35,7 @@
             <!-- Uncomment below if you prefer to use an image logo -->
             <nav id="navbar" class="navbar order-lg-0">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                    <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
                     <li><a class="nav-link scrollto" href="#">Contact</a></li>
                     <li><a class="nav-link scrollto" href="#">Booking</a></li>
                     <button class="btn btn-success scrollto fw-bold" onclick="window.location.href='login.php';" style=" margin-left: 20px;">Login</button>
@@ -71,92 +71,28 @@
 
         <section id="team" class="team">
             <div class="container rounded" data-aos="fade-up" style="background-color: #D9D9D94D;">
-                <div class="section-title">
+                <div class="section-title text-center">
                     <!-- <h2>Team</h2> -->
-                    <p>Lihat Jadwal Lapangan</p>
+                    <p>Jadwal Lapangan</p>
                 </div>
                 <!-- End Search -->
-
-                <div class="row mt-4">
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="../img/Lapangan/lapangan.png" class="img-fluid" alt="" href="login.php">
-                            </div>
-                            <div class="member-info">
-                                <h4>King Futsal</h4>
-                                <div class="row">
-                                    <div class="col">
-                                        <h5><i class="bi bi-geo-alt-fill"></i>Ciwareng</h5>
-                                    </div>
-                                    <div class="col  justify-content-right">
-                                        <h5>999 KM dari anda</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn btn-success mt-4">Lihat Detail</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="container rounded">
+                    <?php
+                    include 'lapang.php' ?>
                 </div>
             </div>
         </section><!-- End Team Section -->
         <!-- End Search -->
 
-        <section id="team" class="team">
-            <div class="container rounded" data-aos="fade-up">
-                <div class=" section-title">
+        <section id="team" class="team ">
+            <div class="container rounded " data-aos="fade-up">
+                <div class=" section-title text-center">
                     <!-- <h2>Team</h2> -->
                     <p>Form Booking</p>
                 </div>
                 <!-- End Search -->
                 <div class="row mt-2">
-                    <form class="needs-validation col-6" novalidate>
+                    <form class="needs-validation col-12" novalidate>
                         <div class="row g-3">
                             <div class="col-md-12">
                                 <label for="country" class="form-label">Pilih Lapangan</label>
@@ -190,7 +126,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-5">
                                 <label for="state" class="form-label">Jam Selesai</label>
                                 <select class="form-select" id="state" required>
                                     <option value="">Choose...</option>
@@ -201,7 +137,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <span class="badge bg-success rounded-pill">2 Jam</span>
                                 </label>
                             </div>
@@ -212,73 +148,8 @@
                             <h4 class="mb-3">Rp.0 Ribu</h4>
                         </div>
                         <hr class="my-4">
-                        <button class="w-100 btn btn-success btn-lg" type="submit">Checkout</button>
+                        <button class="w-100 btn btn-success btn-lg" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Checkout</button>
                     </form>
-                    <!-- <section id="features" class="features">
-                        <div class="container" data-aos="fade-up" style="margin-top: 10px;">
-                            <div class="row">
-                                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
-                                    <h4>Nama Lapangan </h4>
-                                    <div class="input-group mb-3 mt-2">
-                                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                                        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                        </ul>
-                                    </div>
-                                    <h4>Tanggal Main </h4>
-                                    <div class="input-group mb-3 mt-2">
-                                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                                        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                        <ul class="dropdown-menu dropdown-menu-end">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="row align-items-center">
-                                        <div class="col-4 align-items-center">
-                                            <h4>Jam Mulai</h4>
-                                            <div class="input-group mb-3 mt-2">
-                                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                                                <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-1">
-                                            <h4>-</h4>
-                                        </div>
-                                        <div class="col-4 align-items-center">
-                                            <h4>Jam Selesai</h4>
-                                            <div class="input-group mb-3 mt-2">
-                                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                                                <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-3 align-items-center">
-                                            <h5>2 Jam</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div> -->
                 </div>
         </section><!-- End Features Section -->
         </div>
@@ -307,7 +178,92 @@
     <!-- Template Main JS File -->
     <script src="../../template/Gp/assets/js/main.js"></script>
     <script src="../../template/Gp/assets/js/form-validation.js"></script>
+    <script>
+        const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+            target: '#navbar-example2'
+        })
+    </script>
+    </script>
 
 </body>
 
 </html>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Pembayaran</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <!-- Columns are always 50% wide, on mobile and desktop -->
+                    <p class="fw-bold text-success">Detail Pemesanan</p>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6 fw-bold">
+                            Nama Pesanan
+                        </div>
+                        <div class="col-6 fw-bold">Jam Main</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            Yana
+                        </div>
+                        <div class="col-6">09.00-08.00 </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 fw-bold">Nama Lapangan</div>
+                        <div class="col-6 fw-bold">Harga</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 ">King Futsal</div>
+                        <div class="col-6">Rp.90.000 </div>
+                    </div>
+                    <hr>
+                    <p class="fw-bold text-success">Detail Pembayaran</p>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6 fw-bold">
+                            Nama Pesanan
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            Yana
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 fw-bold">
+                            Jenis Pembayaran
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    DP (50%)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Full
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-check-label fw-bold" for="flexRadioDefault1">Bukti Pembayaran
+                                <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Verifikasi Pembayaran</button>
+                </div>
+            </div>
+        </div>
+    </div>

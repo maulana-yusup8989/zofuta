@@ -1,6 +1,6 @@
-<?php include '../../template/header.php' ?>
-<?php include '../../template/navbar.php' ?>
-<?php include '../../template/sidebar.php' ?>
+<?php include 'template/header.php' ?>
+<?php include 'template/navbar.php' ?>
+<?php include 'template/sidebar.php' ?>
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -68,4 +68,4 @@
         </tbody>
     </table>
 </div>
-<?php include '../../template/footer.php' ?>
+<?php include 'template/footer.php' ?>

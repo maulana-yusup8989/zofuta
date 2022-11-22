@@ -22,7 +22,7 @@
     <link href="../../template/Gp/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="../../template/Gp/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
-    <link href="../../template/Gp/assets/css/style.css" rel="stylesheet">
+    <link href="../../template/Gp/assets/css/styles.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
             <!-- Uncomment below if you prefer to use an image logo -->
             <nav id="navbar" class="navbar order-lg-0">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                    <li><a class="nav-link scrollto active" onclick="scrollwin()">Home</a></li>
                     <li><a class="nav-link scrollto" href="#">Contact</a></li>
                     <li><a class="nav-link scrollto" href="#">Booking</a></li>
                     <button class="btn btn-success scrollto fw-bold" onclick="window.location.href='login.php';" style=" margin-left: 20px;">Login</button>

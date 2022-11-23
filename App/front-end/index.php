@@ -21,6 +21,8 @@
     <link href="../../template/Gp/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="../../template/Gp/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="../../template/Gp/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+
     <!-- Template Main CSS File -->
     <link href="../../template/Gp/assets/css/styles.css" rel="stylesheet">
 </head>

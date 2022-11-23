@@ -24,6 +24,7 @@
     <!-- Template Main CSS File -->
     <link href="../../template/Gp/assets/css/styles.css" rel="stylesheet">
     <link href="../../template/Gp/assets/cssform-validation.css" rel="stylesheet">
+    <link href="../../template/Gp/assets/css/tabel.css" rel="stylesheet">
 </head>
 
 <body>
@@ -48,7 +49,7 @@
 
 
     <main id="main">
-        <!-- ======= Features Section ======= -->
+        <!-- ======= Keterangan Gor ======= -->
         <section id="features" class="features">
             <div class="container" data-aos="fade-up" style="margin-top: 100px;">
                 <div class="row">
@@ -56,19 +57,27 @@
                         <div class="icon-box mt-5 " data-aos="zoom-in" data-aos-delay="150">
                             <i class="bi bi-geo-alt-fill"></i>
                             <h4>Alamat</h4>
-                            <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                            <p>Jl. Taman Pahlawan No. 205, Ds. Purwamekar, Kec. Purwakarta</p>
                         </div>
                         <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
                             <i class="bi bi-alarm-fill"></i>
                             <h4>Jam Operasional</h4>
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                            <br>
+
+                            <p class="fw-bold">Weekday</p>
+                            <p>Senin s/d Jumat : 08.00 - 24.00 </p>
+                            <br>
+                            <p class="fw-bold">Weekend & Tanggal Merah</p>
+                            <p>Sabtu - Minggu : 08.00 - 24.00 </p>
+
                         </div>
                     </div>
                     <div class="image col-lg-6 rounded" style='background-image: url("../img/Lapangan/lapangan.png"); padding-top: 200px;' data-aos="fade-right"></div>
                 </div>
             </div>
-        </section><!-- End Features Section -->
+        </section><!-- End-Keterangan Gor -->
 
+        <!-- Jadwal Lapangan -->
         <section id="team" class="team">
             <div class="container rounded" data-aos="fade-up" style="background-color: #D9D9D94D;">
                 <div class="section-title text-center">
@@ -81,16 +90,15 @@
                     include 'lapang.php' ?>
                 </div>
             </div>
-        </section><!-- End Team Section -->
-        <!-- End Search -->
+        </section>
+        <!-- End Jadwal Lapangan -->
 
+        <!-- Form Booking -->
         <section id="team" class="team ">
             <div class="container rounded " data-aos="fade-up">
                 <div class=" section-title text-center">
-                    <!-- <h2>Team</h2> -->
                     <p>Form Booking</p>
                 </div>
-                <!-- End Search -->
                 <div class="row mt-2">
                     <form class="needs-validation col-12" novalidate>
                         <div class="row g-3">
@@ -151,10 +159,9 @@
                         <button class="w-100 btn btn-success btn-lg" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Checkout</button>
                     </form>
                 </div>
-        </section><!-- End Features Section -->
-        </div>
-        </div>
-        </section><!-- End Team Section -->
+        </section>
+        <!--End Form Booking -->
+
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
@@ -182,6 +189,12 @@
         const scrollSpy = new bootstrap.ScrollSpy(document.body, {
             target: '#navbar-example2'
         })
+        $(document).ready(function() {
+            $('#dtHorizontalExample').DataTable({
+                "scrollX": true
+            });
+            $('.dataTables_length').addClass('bs-select');
+        });
     </script>
     </script>
 

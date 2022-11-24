@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
         <img src="../../../template/admin_lte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Super Admin</span>
+        <span class="brand-text font-weight-light">Admin</span>
     </a>
 
     <!-- Sidebar -->
@@ -13,7 +13,7 @@
                 <img src="../../../template/admin_lte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Super Admin</a>
+                <a href="#" class="d-block">Admin</a>
             </div>
         </div>
         <!-- Sidebar Menu -->
@@ -22,7 +22,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
-                    <a href="../su_admin/index.php" class="nav-link">
+                    <a href="../admin/index.php" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -30,15 +30,7 @@
                     </a>
                 </li>
                 <li class="nav-item menu-open">
-                    <a href="../su_admin/data_gor.php" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Data Gor
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item menu-open">
-                    <a href="../su_admin/data_lapangan.php" class="nav-link">
+                    <a href="../admin/data_lapangan.php" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Data Lapangan
@@ -46,7 +38,7 @@
                     </a>
                 </li>
                 <li class="nav-item menu-open">
-                    <a href="../su_admin/data_payment.php" class="nav-link">
+                    <a href="../admin/data_payment.php" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Data Payment
@@ -54,10 +46,10 @@
                     </a>
                 </li>
                 <li class="nav-item menu-open">
-                    <a href="../su_admin/data_user.php" class="nav-link">
+                    <a href="../admin/data_jadwal.php" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Data User
+                            Data Jadwal
                         </p>
                     </a>
                 </li>

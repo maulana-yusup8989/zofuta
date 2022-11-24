@@ -287,8 +287,6 @@
                 <td> <button class="btn btn-primary btn-sm mr-2"><i class="fa fa-edit">Booking</i></button>
                 </td>
               </tr>
-
-
             </tbody>
           </table>
         </div>
@@ -432,56 +430,5 @@
       </div>
     </div>
   </div>
-  <!-- /.content-header -->
-
-  <!-- /tabel data -->
-
-
-  <!-- tabel lapangan -->
-  <button class="btn btn-primary btn-sm ml-3 mt-3"><i class="fa fa-plus "> Add</i></button>
-  <table class="table table-striped mt-4">
-    <thead>
-      <tr>
-        <th scope="col">Nama Lapangan</th>
-        <th scope="col">Jam</th>
-        <th scope="col">Status</th>
-        <th scope="col">Action</th>
-        <th scope="col">Foto Lapangan</th>
-        <th scope="col">Aksi</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td><img src="" alt="Foto_lapangan"></td>
-        <td> <button class="btn btn-primary btn-sm mr-2"><i class="fa fa-edit">Edit</i></button>
-          <button class="btn btn-success btn-sm mr-2"><i class="fa fa-trash">Delete</i></button>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td><img src="" alt="Foto_lapangan"></td>
-        <td> <button class="btn btn-primary btn-sm mr-2"><i class="fa fa-edit">Edit</i></button>
-          <button class="btn btn-success btn-sm mr-2"><i class="fa fa-trash">Delete</i></button>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        <td><img src="" alt="Foto_lapangan"></td>
-        <td> <button class="btn btn-primary btn-sm mr-2"><i class="fa fa-edit">Edit</i></button>
-          <button class="btn btn-success btn-sm mr-2"><i class="fa fa-trash">Delete</i></button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
 </div>
 <?php include 'template/footer.php' ?>

@@ -151,7 +151,7 @@
                 </td>
               </tr>
 
-<!-- /.Fahmi -->
+              <!-- /.Fahmi -->
             </tbody>
           </table>
         </div>
@@ -422,8 +422,6 @@
                 <td> <button class="btn btn-primary btn-sm mr-2"><i class="fa fa-edit">Booking</i></button>
                 </td>
               </tr>
-
-
             </tbody>
           </table>
         </div>

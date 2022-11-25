@@ -49,7 +49,7 @@
                     <a href="../su_admin/data_payment.php" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Data Payment
+                            Payment Report
                         </p>
                     </a>
                 </li>

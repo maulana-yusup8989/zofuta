@@ -31,14 +31,13 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center justify-content-lg-between">
-            <a href="index.php" class="logo auto lg-0"><img src="../img/logo.png" alt="" class="img-fluid"></a>
-            <h1 class="logo auto me-lg-0"><a href="index.php"><span>Zona Futsal</span> Purwakarta.</a></h1>
+
+            <h1 class="logo auto me-lg-0"><a href="index.php" class="logo auto lg-0"><img src="../img/logo.png" alt="" class="img-fluid px-4"></a><a href="index.php"><span>Zona Futsal</span> Purwakarta.</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <nav id="navbar" class="navbar order-lg-0">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
+                    <li><a class="nav-link scrollto active" onclick="scrollwin()">Home</a></li>
                     <li><a class="nav-link scrollto" href="#">Contact</a></li>
-                    <li><a class="nav-link scrollto" href="#">Booking</a></li>
                     <button class="btn btn-success scrollto fw-bold" onclick="window.location.href='login.php';" style=" margin-left: 20px;">Login</button>
                 </ul>
 
@@ -228,32 +227,35 @@
                         <div class="col-6">09.00-08.00 </div>
                     </div>
                     <div class="row">
+                        <div class="col-6 fw-bold">Nama Gor</div>
+                        <div class="col-6 fw-bold">Tanggal Mian</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 ">King Futsal</div>
+                        <div class="col-6">25 Novemver 2022 </div>
+                    </div>
+                    <div class="row">
                         <div class="col-6 fw-bold">Nama Lapangan</div>
                         <div class="col-6 fw-bold">Harga</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 ">King Futsal</div>
+                        <div class="col-6 ">Lapangan 1</div>
                         <div class="col-6">Rp.90.000 </div>
                     </div>
+
                     <hr>
                     <p class="fw-bold text-success">Detail Pembayaran</p>
                     <hr>
                     <div class="row">
                         <div class="col-6 fw-bold">
-                            Nama Pesanan
+                            No Rekening
                         </div>
+                        <div class="col-6 fw-bold">Jenis Pembayaran</div>
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            Yana
+                            0948329483029 (BCA)
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 fw-bold">
-                            Jenis Pembayaran
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-6">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
@@ -268,15 +270,18 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-check-label fw-bold" for="flexRadioDefault1">Bukti Pembayaran
-                                <input class="form-control" type="file" id="formFile">
-                        </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success">Verifikasi Pembayaran</button>
+                <div class="row">
+                    <div class="mb-3">
+                        <label class="form-check-label fw-bold" for="flexRadioDefault1">Bukti Pembayaran
+                            <input class="form-control" type="file" id="formFile">
+                    </div>
                 </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="location.href='profil.php'" ;>Verifikasi Pembayaran</button>
             </div>
         </div>
     </div>
+</div>

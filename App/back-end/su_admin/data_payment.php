@@ -8,12 +8,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Data Payment</h1>
+                    <h1 class="m-0">Payment Report</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Data Payment</li>
+                        <li class="breadcrumb-item"><a href="../admin/index.php" class="nav-link">Home</a></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -22,7 +21,7 @@
     <!-- /.content-header -->
 
     <!-- Tabel Gor -->
-    <button class="btn btn-success btn-sm ml-3 mt-3" data-bs-toggle="modal" data-bs-target="#add_payment"><i class="fa fa-plus "> Add</i></button>
+    <!-- <button class="btn btn-success btn-sm ml-3 mt-3" data-bs-toggle="modal" data-bs-target="#add_payment"><i class="fa fa-plus "> Add</i></button> -->
     <table class="table table-striped mt-4">
         <thead>
             <tr>
@@ -33,7 +32,8 @@
                 <th scope="col">Jam Selesai</th>
                 <th scope="col">Tanggal</th>
                 <th scope="col">Bukti Pembayaran</th>
-                <th scope="col">Aksi</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -44,8 +44,12 @@
                 <td>@mdo</td>
                 <td>@mdo</td>
                 <td>@mdo</td>
-                <td><img src="" alt="Bukti_pembayaran"></td>
-                <td> <button class="btn btn-dark btn-sm mr-2" data-bs-toggle="modal" data-bs-target="delete_payment"><i class="fa fa-print"> Print</i></button>
+                <td><img src="../../img/king-futsal.png" style="width: 20px; height: 20px;" alt="Bukti_pembayaran">
+                    <button class="btn btn-primary btn-sm ml-3" data-bs-toggle="modal" data-bs-target="#view"><i class="fa fa-search"> View</i></button>
+                </td>
+                <td>@mdo</td>
+                <td><button class="btn btn-success btn-sm">Terima</button>
+                    <button class="btn btn-danger btn-sm">Tolak</button>
                 </td>
             </tr>
         </tbody>
@@ -88,7 +92,11 @@
                             <input type="text" class="form-control" id="tanggal" name="tanggal">
                         </div>
                         <div class="mb-3">
-                            <label class="form-check-label fw-bold" for="foto_lapangan">Bukti Pembayaran
+                            <label class="form-check-label fw-bold" for="foto_lapangan">Bukti Pembayaran</label>
+                            <input class="form-control" type="file" id="bukti_pembayaran" name="bukti_pembayaran">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-check-label fw-bold" for="foto_lapangan">s
                                 <input class="form-control" type="file" id="bukti_pembayaran" name="bukti_pembayaran">
                         </div>
                     </form>
@@ -97,6 +105,27 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal add_gor -->
+<div class="modal fade" id="view" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">View</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <img src="../../img/king-futsal.png" style="width: 400px; height: 200px;" alt="foto">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

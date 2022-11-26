@@ -27,6 +27,30 @@
 
 <body>
     <main id="main">
+
+
+        <!-- ======= Header login ======= -->
+        <header id="header" class="fixed-top">
+                    <div class="container d-flex align-items-center justify-content-lg-between">
+                        <h1 class="logo auto me-lg-0"><a href="index.php" class="logo auto lg-0"><img src="../img/logo.png" alt="" class="img-fluid px-4"></a><a href="index.php"><span>Zona Futsal</span> Purwakarta.</a></h1>
+                        <nav id="navbar" class="navbar order-lg-0">
+                            <ul>
+                                <li><a class="nav-link scrollto active" onclick="scrollwin()">Home</a></li>
+                                <li><a class="nav-link scrollto" href="#">Contact</a></li>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Hai Bryan
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li><button class="dropdown-item" type="button" onclick="window.location.href='profil.php';">Profil</button></li>
+                                        <li><button class="dropdown-item" type="button">Logout</button></li>
+                                    </ul>
+                                </div>
+                            </ul>
+                            <i class=" bi bi-list mobile-nav-toggle"></i>
+                        </nav>
+                    </div>
+                </header>
         <!-- ======= Keterangan Gor ======= -->
         <section id="features" class="features">
             <div class="container" data-aos="fade-up" style="margin-top: 100px;">
@@ -142,33 +166,9 @@
                         </tr>
                     </tbody>
                 </table>
-
             </div>
         </section><!-- End-Keterangan Gor -->
-        <!-- ======= Header ======= -->
-        <header id="header" class="fixed-top ">
-            <div class="container d-flex align-items-center justify-content-lg-between">
-                <h1 class="logo auto me-lg-0"><a href="index.php" class="logo auto lg-0"><img src="../img/logo.png" alt="" class="img-fluid px-4"></a><a href="index.php"><span>Zona Futsal</span> Purwakarta.</a></h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <nav id="navbar" class="navbar order-lg-0">
-                    <ul>
-                        <li><a class="nav-link scrollto active" onclick="scrollwin()">Home</a></li>
-                        <li><a class="nav-link scrollto" href="#">Contact</a></li>
-                        <button class="btn btn-success scrollto fw-bold" onclick="window.location.href='login.php';" style=" margin-left: 20px;">Login</button>
-                    </ul>
-                    <i class=" bi bi-list mobile-nav-toggle"></i>
-                </nav><!-- .navbar -->
-            </div>
-        </header><!-- End Header -->
-        <!-- ======= Hero Section ======= -->
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                </div>
-            </div>
-        </div>
-        <!-- ======= Footer ======= -->
-        <footer id="footer mt-4">
+        <footer id="footer">
             <div class="container">
                 <div class="copyright">
                     <strong><span style="color:green;">&copy; ZONA FUTSAL</span> PURWAKARTA</strong>

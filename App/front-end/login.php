@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'includes/session.php'; ?>
-<?php
-if (isset($_SESSION['user'])) {
-    header('location: index.php');
-}
-?>
+
 
 <head>
     <meta charset="utf-8">
@@ -36,13 +32,22 @@ if (isset($_SESSION['user'])) {
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang</h1>
                                     </div>
-
-                                    <form class="user">
+                                    <?php
+                                    if (isset($_SESSION['error'])) {
+                                        echo "<div class='callout callout-danger text-center'><p>" . $_SESSION['error'] . "</p> </div>";
+                                        unset($_SESSION['error']);
+                                    }
+                                    if (isset($_SESSION['success'])) {
+                                        echo "<div class='callout callout-success text-center'><p>" . $_SESSION['success'] . "</p> </div>";
+                                        unset($_SESSION['success']);
+                                    }
+                                    ?>
+                                    <form action="verify.php" method="POST">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Masukan email anda...">
+                                            <input type="text" name="username" class="form-control form-control-user" id="username" placeholder="Masukan Username">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="password" placeholder="Masukan katasandi">
+                                            <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Masukan kata sandi">
                                         </div>
                                         <!-- <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -51,9 +56,9 @@ if (isset($_SESSION['user'])) {
                                                     Me</label>
                                             </div>
                                         </div> -->
-                                        <a href=.#" class="btn btn-success btn-user btn-block">
+                                        <button class="btn btn-success btn-user btn-block" type="submit" name="login">
                                             Login
-                                        </a>
+                                        </button>
                                         <hr>
 
                                     </form>

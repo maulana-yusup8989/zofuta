@@ -2,7 +2,7 @@
     <html lang="en">
 
     <head>
-        <?php include 'includes/conn.php'; ?>
+        <?php include 'includes/session.php'; ?>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <title>Zona Futsal Purwakarta</title>
@@ -28,25 +28,90 @@
     </head>
 
     <body>
-        <!-- ======= Header ======= -->
+
+
+    
+
+
+
+
+
+
+    
+        <!-- ======= Header no-login ======= -->
         <header id="header" class="fixed-top ">
             <div class="container d-flex align-items-center justify-content-lg-between">
-
                 <h1 class="logo auto me-lg-0"><a href="index.php" class="logo auto lg-0"><img src="../img/logo.png" alt="" class="img-fluid px-4"></a><a href="index.php"><span>Zona Futsal</span> Purwakarta.</a></h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
                 <nav id="navbar" class="navbar order-lg-0">
                     <ul>
                         <li><a class="nav-link scrollto active" onclick="scrollwin()">Home</a></li>
                         <li><a class="nav-link scrollto" href="#">Contact</a></li>
-                        <button class="btn btn-success scrollto fw-bold" onclick="window.location.href='login.php';" style=" margin-left: 20px;">Login</button>
-                    </ul>
-
+                        <?php
+          if (isset($_SESSION['user'])) {
+            echo '
+                <li class="dropdown user user-menu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="hidden-xs">Hai, ' . $user['nama_depan'] . ' ' . $user['nama_belakang'] . '</span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <!-- User image -->
+                    <li class="user-header">
+                      <p class="text-center">
+                        ' . $user['nama_depan'] . ' ' . $user['nama_belakang'] . '
+                      </p>
+                    </li>
+                    <li class="user-footer">
+                      <div class="pull-left">
+                        <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
+                      </div>
+                      <div class="pull-right">
+                        <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              ';
+          } else {
+            echo "
+                <li><a href='login.php'>LOGIN</a></li>
+                <li><a href='register.php'>SIGNUP</a></li>
+              ";
+          }
+          ?>
+                        </ul>
                     <i class=" bi bi-list mobile-nav-toggle"></i>
-                </nav><!-- .navbar -->
+                </nav>
             </div>
-        </header><!-- End Header -->
+        </header>
 
-        <!-- ======= Hero Section ======= -->
+
+
+
+        <!-- ======= Header login ======= -->
+        <!-- <header id="header" class="fixed-top">
+                    <div class="container d-flex align-items-center justify-content-lg-between">
+                        <h1 class="logo auto me-lg-0"><a href="index.php" class="logo auto lg-0"><img src="../img/logo.png" alt="" class="img-fluid px-4"></a><a href="index.php"><span>Zona Futsal</span> Purwakarta.</a></h1>
+                        <nav id="navbar" class="navbar order-lg-0">
+                            <ul>
+                                <li><a class="nav-link scrollto active" onclick="scrollwin()">Home</a></li>
+                                <li><a class="nav-link scrollto" href="#">Contact</a></li>
+                                
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Hai Yana
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li><button class="dropdown-item" type="button" onclick="window.location.href='profil.php';">Profil</button></li>
+                                        <li><button class="dropdown-item" type="button">Logout</button></li>
+                                    </ul>
+                                </div>
+                            </ul>
+                            <i class=" bi bi-list mobile-nav-toggle"></i>
+                        </nav>
+                    </div>
+                </header> -->
+
+        <!-- ======= Banner ======= -->
         <section id="hero" class="d-flex align-items-center justify-content-center">
             <div class="container" data-aos="fade-up">
                 <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
@@ -60,16 +125,16 @@
                 </div>
             </div>
             </div>
-        </section><!-- End Hero -->
+        </section>
+        <!-- End Hero -->
 
         <main id="main">
             <section id="team" class="team">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
-                        <!-- <h2>Team</h2> -->
                         <p>Daftar GOR</p>
                     </div>
-                    <!-- Search -->
+                    <!-- search -->
                     <div class="row mb-4">
                         <div class="col-md-8"></div>
                         <div class="col-md-4 ml-auto">

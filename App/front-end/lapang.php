@@ -1,10 +1,25 @@
 <div class="row">
     <div class="accordion" id="accordionExample">
+    <?php
+                    $conn = $pdo->open();
+                    try {
+                        $stmt = $conn->prepare("SELECT * FROM lapangan WHERE id_gor = :id");
+                        $stmt->execute(['id' => $id]);
+                        $stmt2 = $conn->prepare("SELECT * FROM lapangan WHERE id_lapangan =1");
+                        $stmt2->execute(); 
+                        $row = $stmt2->fetch();
+                        
+                    } catch (PDOException $e) {
+                        echo "There is some problem in connection: " . $e->getMessage();
+                    }
+                    $pdo->close();
+                    ?>
         <div class="col">
+                        
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Lapangan 1
+                        <?php echo $row['nama_lapangan'] ?>
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -28,10 +43,10 @@
                                     </div>
                                     <div class="row">
                                         <div class="col ">
-                                            <p>70.000/Jam</p>
+                                            <p><?php echo $row['harga_sewa'] ?> /Jam</p>
                                         </div>
                                         <div class="col">
-                                            <p>Rumput Sintetis</p>
+                                            <p><?php echo $row['ket_lapangan'] ?></p>
                                         </div>
                                         <div class="col">
                                             <select class="form-select" id="state" required>

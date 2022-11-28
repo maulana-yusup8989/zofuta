@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include 'includes/session.php'; ?>
+<?php
+$conn = $pdo->open();
 
+$id = $_GET['id'];
+// tampil detail gor
+try {
+
+	$stmt = $conn->prepare("SELECT * FROM gor WHERE id_gor = :id");
+	$stmt->execute(['id' => $id]);
+	$row = $stmt->fetch();
+    $image = (!empty($row['foto_gor'])) ? '../img/' . $row['foto_gor'] : '../img/lapangan.png';
+} catch (PDOException $e) {
+	echo "There is some problem in connection: " . $e->getMessage();
+}
+
+
+?>
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -53,10 +70,11 @@
             <div class="container" data-aos="fade-up" style="margin-top: 100px;">
                 <div class="row">
                     <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+                    <h2 class="fw-bold"><?php echo $row['nama_gor']?></h2>
                         <div class="icon-box mt-5 " data-aos="zoom-in" data-aos-delay="150">
                             <i class="bi bi-geo-alt-fill"></i>
                             <h4>Alamat</h4>
-                            <p>Jl. Taman Pahlawan No. 205, Ds. Purwamekar, Kec. Purwakarta</p>
+                            <p><?php echo $row['alamat_gor']?></p>
                         </div>
                         <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
                             <i class="bi bi-alarm-fill"></i>
@@ -71,7 +89,7 @@
 
                         </div>
                     </div>
-                    <div class="image col-lg-6 rounded" style='background-image: url("../img/Lapangan/lapangan.png"); padding-top: 200px;' data-aos="fade-right"></div>
+                    <div class="image col-lg-6 rounded" style='background-image: url("<?php echo $image?>"); padding-top: 200px;' data-aos="fade-right"></div>
                 </div>
             </div>
         </section><!-- End-Keterangan Gor -->
@@ -85,7 +103,7 @@
                 </div>
                 <!-- End Search -->
                 <div class="container rounded">
-                    <?php
+                <?php
                     include 'lapang.php' ?>
                 </div>
             </div>

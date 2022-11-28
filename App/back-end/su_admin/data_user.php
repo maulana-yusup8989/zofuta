@@ -1,9 +1,9 @@
+<?php include 'includes/session.php' ?>
 <?php include 'template/header.php' ?>
 <?php include 'template/navbar.php' ?>
-<?php include 'template/sidebar.php' ?>
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+    <?php include 'template/sidebar.php' ?>
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">

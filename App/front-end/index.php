@@ -183,7 +183,7 @@
                                             </div>
                                             <div class='row'>
                                                 <button class='btn btn-success mt-4'>
-                                                <a href='detail_lapangan.php' style='color: white;'> Lihat Detail </a> 
+                                                <a href='detail_lapangan.php?id=".$row['id_gor']."'style='color: white;'> Lihat Detail </a> 
                                                 </button>
                                             </div>
                                         </div>

@@ -24,27 +24,60 @@
     <!-- tabel user -->
 
     <button class="btn btn-success btn-sm ml-3 mt-3" data-bs-toggle="modal" data-bs-target="#add_user"><i class="fa fa-plus "> Add</i></button>
-    <table class="table table-striped mt-4">
+    <table class="table table-striped mt-4 ml-3">
         <thead>
             <tr>
-                <th scope="col">Username</th>
-                <th scope="col">Password</th>
-                <th scope="col">Nama Depan</th>
-                <th scope="col">Nama Belakang</th>
-                <th scope="col">Nomor Telephone</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Nomor Telepon</th>
+                <th scope="col">Alamat</th>
                 <th scope="col">Email</th>
                 <th scope="col">Status</th>
                 <th scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
+        <?php
+                    $conn = $pdo->open();
+
+                    try{
+                      $stmt = $conn->prepare("SELECT * FROM user");
+                      $stmt->execute();
+                      foreach($stmt as $row){
+                        if ($row['status']==1) {
+                            $stat ="CUSTOMER";
+                        }
+                        else if ($row['status']==2) {
+                            $stat ="ADMIN GOR";
+                        }
+                        else if ($row['status']==3) {
+                            $stat ="SUPER ADMIN";
+                        }
+                        echo "
+                          <tr>
+                            <td>".$row['nama_depan'].' '.$row['nama_belakang']."</td>
+                            <td>".$row['nmr_tlp']."</td>
+                            <td>".$row['alamat_user']."</td>
+                            <td>".$row['email_user']."</td>
+                            <td>".$stat."</td>
+                            <td>
+                              <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id_user']."'><i class='fa fa-edit'></i> Edit</button>
+                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id_user']."'><i class='fa fa-trash'></i> Delete</button>
+                            </td>
+                          </tr>
+                        ";
+                      }
+                    }
+                    catch(PDOException $e){
+                      echo $e->getMessage();
+                    }
+
+                    $pdo->close();
+                  ?>
             <tr>
-                <th scope="row">1</th>
                 <td>Mark</td>
                 <td>Otto</td>
                 <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
+                <td>Otto</td>
                 <td>@mdo</td>
                 <td>
                     <button class="btn btn-primary btn-sm mr-2"><i class="fa fa-edit">Edit</i></button>

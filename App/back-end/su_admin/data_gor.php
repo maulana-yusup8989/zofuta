@@ -27,25 +27,48 @@
     <table class="table table-striped mt-4">
         <thead>
             <tr>
+                <th scope="col">Foto Gor</th>
                 <th scope="col">Nama Gor</th>
                 <th scope="col">No Rekening</th>
+                <th scope="col">Alamat</th>
                 <th scope="col">latitude</th>
-                <th scope="col">Longitude</th>
-                <th scope="col">Foto Gor</th>
+                <th scope="col">Longtitude</th>
                 <th scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td><img src="" alt="Foto_gor"></td>
-                <td> <button class="btn btn-primary btn-sm mr-2"><i class="fa fa-edit"> Edit</i></button>
-                    <button class="btn btn-danger btn-sm mr-2" data-bs-toggle="modal" data-bs-target="#delete_gor"><i class="fa fa-trash"> Delete</i></button>
-                </td>
-            </tr>
+        <?php
+                    $conn = $pdo->open();
+
+                    try{
+                      $stmt = $conn->prepare("SELECT * FROM gor");
+                      $stmt->execute();
+                      foreach($stmt as $row){
+                        $image = (!empty($row['foto_gor'])) ? '../../img/' . $row['foto_gor'] : '../../img/lapangan.png';
+                        echo "
+                          <tr>
+                            <td>
+                            <img src='".$image."' height='30px' width='30px'>
+                            </td>
+                            <td>".$row['nama_gor']."</td>
+                            <td>".$row['no_rek']."</td>
+                            <td>".$row['alamat_gor']."</td>
+                            <td>".$row['latitude']."</td>
+                            <td>".$row['longtitude']."</td>
+                            <td>
+                              <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id_gor']."'><i class='fa fa-edit'></i> Edit</button>
+                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id_gor']."'><i class='fa fa-trash'></i> Delete</button>
+                            </td>
+                          </tr>
+                        ";
+                      }
+                    }
+                    catch(PDOException $e){
+                      echo $e->getMessage();
+                    }
+
+                    $pdo->close();
+                  ?>
         </tbody>
     </table>
 </div>
@@ -94,7 +117,34 @@
 
 <!-- End-tabel -->
 
+<!-- Modal edit_foto_gor -->
+<div class="modal fade" id="edit_photo">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><b><span class="fullname"></span></b></h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal" method="POST" action="gor_photo.php" enctype="multipart/form-data">
+                <input type="hidden" class="userid" name="id">
+                <div class="form-group">
+                    <label for="photo" class="col-sm-3 control-label">Photo</label>
 
+                    <div class="col-sm-9">
+                      <input type="file" id="photo" name="photo" required>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+              <button type="submit" class="btn btn-success btn-flat" name="upload"><i class="fa fa-check-square-o"></i> Update</button>
+              </form>
+            </div>
+        </div>
+    </div>
+</div> 
 <!-- Modal delete_gor -->
 <div class="modal fade" id="delete_gor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">

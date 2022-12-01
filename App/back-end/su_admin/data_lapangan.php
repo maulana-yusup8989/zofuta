@@ -35,16 +35,36 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td><img src="" alt="Foto_lapangan"></td>
-                <td> <button class="btn btn-primary btn-sm mr-2"><i class="fa fa-edit">Edit</i></button>
-                    <button class="btn btn-danger btn-sm mr-2" data-bs-toggle="modal" data-bs-target="#delete_lapangan"><i class="fa fa-trash"> Delete</i></button>
-                </td>
-            </tr>
+        <?php
+                    $conn = $pdo->open();
+
+                    try{
+                      $stmt = $conn->prepare("SELECT * FROM lapangan");
+                      $stmt->execute();
+                      foreach($stmt as $row){
+                        $image = (!empty($row['foto_lapangan'])) ? '../../img/' . $row['foto_lapangan'] : '../../img/lapangan.png';
+                        echo "
+                          <tr>
+                            <td>".$row['id_lapangan']."</td>
+                            <td>".$row['nama_lapangan']."</td>
+                            <td>".$row['ket_lapangan']."</td>
+                            <td>".$row['harga_sewa']."</td>
+                            <td><img src='".$image."' height='30px' width='30px'></td>
+                            <td>".$row['foto_lapangan']."</td>
+                            <td>
+                              <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id_gor']."'><i class='fa fa-edit'></i> Edit</button>
+                              <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id_gor']."'><i class='fa fa-trash'></i> Delete</button>
+                            </td>
+                          </tr>
+                        ";
+                      }
+                    }
+                    catch(PDOException $e){
+                      echo $e->getMessage();
+                    }
+
+                    $pdo->close();
+                  ?>
         </tbody>
     </table>
 </div>

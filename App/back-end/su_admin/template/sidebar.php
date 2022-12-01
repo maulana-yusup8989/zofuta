@@ -29,9 +29,10 @@
                         </p>
                     </a>
                 </li>
+                <br>
                 <li class="nav-item menu-open">
                     <a href="../su_admin/data_gor.php" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-futbol"></i>
                         <p>
                             Data Gor
                         </p>
@@ -39,15 +40,16 @@
                 </li>
                 <li class="nav-item menu-open">
                     <a href="../su_admin/data_lapangan.php" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-list"></i>
                         <p>
                             Data Lapangan
                         </p>
                     </a>
                 </li>
+                <br>
                 <li class="nav-item menu-open">
                     <a href="../su_admin/data_payment.php" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-dollar-sign"></i>
                         <p>
                             Payment Report
                         </p>
@@ -55,7 +57,7 @@
                 </li>
                 <li class="nav-item menu-open">
                     <a href="../su_admin/data_user.php" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             Data User
                         </p>
